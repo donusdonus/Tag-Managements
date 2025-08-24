@@ -7,47 +7,6 @@
 #include "string.h"
 
 
-/** Base point configuration macro */
-/** Maximum buffer size for printing operations */
-#define MARK_CHAR_NULL 0x00
-#define MARK_FREE_MEMORY 0x0FF
-#define MAX_BUFFER_PRINT 128
-#define _SECTOR_RAM_(x,y) calloc(x,y)
-#define _SECTOR_PSRAM_(x,y) calloc(x,y)
-#define _SECTOR_SPARE1_(x,y) calloc(x,y)
-#define _SECTOR_SPARE2_(x,y) calloc(x,y)
-#define RAM_FREE(x) free(x)
-/** Maximum buffer size for printing operations */
-
-
-#pragma pack(push,1)
-/** @brief Raw memory structure for Point data
- * 
- * This structure holds a pointer to the raw memory buffer and its size.
- * It is used to manage the data associated with Point objects.
- */
-struct RawMemory
-{
-    public:
-    /// @brief Pointer to the raw memory buffer
-    uint8_t *value;
-    /// @brief Size of the raw memory buffer in bytes
-    size_t   size;
-};
-#pragma pack(pop)
-
-#pragma pack(push,1)
-/// @brief Memory types for Point data allocation
-/// @details This enum defines the memory types used for allocating data buffers in Point objects.
-enum isMemory : uint8_t
-{
-    RAM,    
-    PSRAM,
-    SPARE_1,
-    SPARE_2
-};
-#pragma pack(pop)
-
 static void * Allocator(isMemory memType, size_t elements, size_t elementSize)
 {
     switch (memType)

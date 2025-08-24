@@ -56,51 +56,6 @@ enum isType : uint8_t
 };
 #pragma pack(pop)
 
-#pragma pack(push,1)
-struct TypeInfo {
-    const char* name;       
-    uint8_t element_size;        
-};
-#pragma pack(pop)
-
-
-static const TypeInfo SchematicPoint[] = 
-{
-    {"char\0"  , sizeof(char)     },   /**< Character type */
-    {"int8_t\0"  , sizeof(int8_t)   },   /**< 8-bit signed integer */
-    {"uint8_t\0" , sizeof(uint8_t)  },   /**< 8-bit unsigned integer */
-    {"int16_t\0" , sizeof(int16_t)  },   /**< 16-bit signed integer */
-    {"uint16_t\0", sizeof(uint16_t) },   /**< 16-bit unsigned integer */
-    {"int32_t\0" , sizeof(int32_t)  },   /**< 32-bit signed integer */
-    {"uint32_t\0", sizeof(uint32_t) },   /**< 32-bit unsigned integer */
-    {"float\0" , sizeof(float)    },   /**< Single precision float */
-    {"double\0", sizeof(double)   }    /**< Double precision float */
-};
-
-static char PrintOut[MAX_BUFFER_PRINT];
-typedef size_t (*PrintPointData)(size_t ,void *,size_t);
-size_t static DISP_CHAR(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%c",((char*)data)[index]);}
-size_t static DISP_INT8(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int8_t*)data)[index]);}
-size_t static DISP_UINT8(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint8_t*)data)[index]);}
-size_t static DISP_INT16(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int16_t*)data)[index]);}
-size_t static DISP_UINT16(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint16_t*)data)[index]);}
-size_t static DISP_INT32(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int32_t*)data)[index]);}
-size_t static DISP_UINT32(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint32_t*)data)[index]);}
-size_t static DISP_FLOAT(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%.3f ",((float*)data)[index]);}
-size_t static DISP_DOUBLE(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%.3f ",((double*)data)[index]);}
-
-PrintPointData static FuncPrintValue[]   = {
-                                       &DISP_CHAR,
-                                       &DISP_INT8,
-                                       &DISP_UINT8,
-                                       &DISP_INT16,
-                                       &DISP_UINT16,
-                                       &DISP_INT32,
-                                       &DISP_UINT32,
-                                       &DISP_FLOAT,
-                                       &DISP_DOUBLE
-                                   };
-
 union isOption
 {
     uint8_t data;
@@ -111,6 +66,8 @@ union isOption
         uint8_t _external_alloc : 1;
         uint8_t _mark : 1;
     };
+
+    size_t Size(){ return data;}
 };
 
 
@@ -127,6 +84,12 @@ struct RawMemory
     uint8_t *value;
     /// @brief Size of the raw memory buffer in bytes
     size_t   size;
+
+    size_t Size()
+    {
+        return size ; 
+    }
+    
 };
 #pragma pack(pop)
 
@@ -147,15 +110,84 @@ class Tag
 {
 private:
     /* data */
+    isOption _option;
+    RawMemory _name;       /**< Name of the component */
+    RawMemory _data;       /**< Data buffer for the component */
+    Tag *_next = nullptr;
+    Tag *_first = nullptr;
+
 public:
     Tag();
     ~Tag();
+
+    size_t GetObjectByteSize()
+        {
+            return  1 +  // _option
+                    1 +  // _len_of_name
+                    _name.Size() + // byte name data
+                    4 + // byte size of data
+                    _data.Size() ; // byte data
+        }
+
+        template<typename T>
+        bool Set(T value,size_t index = 0)
+        {
+            bool monitor;
+            size_t a , b ;
+
+            a = sizeof(T);
+            b = SchematicPoint[_option._type].element_size;
+
+            /* Check Elements Per Size is equal */
+            monitor = (a == b);
+            if(!monitor)
+                return monitor;
+
+            /* Check is not over index */
+            b = GetArraySize();
+            monitor = ((b-1) >= index);
+            if(!monitor)
+                return false;
+            
+            T *tmp = (T*)_data.value; 
+
+            tmp[index] = value;
+
+            return true ;
+        }
+
+        template<typename T>
+        T Get(size_t index = 0)
+        {
+            bool monitor;
+
+            monitor = (sizeof(T) == SchematicPoint[_option._type].element_size);
+            if(!monitor)
+                return T{};
+
+            monitor = (GetArraySize()-1 >= index);
+            if(!monitor)
+                return T{};
+            
+            T *tmp = (T*)_data.value; 
+
+            return tmp[index];
+        }
+
+        size_t GetArraySize();
+
+        const char * MonitorInfo(bool include_bytesize = false);
+
+        const char * MonitorValue(size_t index);
+
+        bool SetName(const char *name);
+
+        const char * GetName();
+
+        void Free();
+
+        RawMemory * GetRawBuffer();
 };
-
-Tag::Tag(){}
-
-Tag::~Tag(){}
-
 
 
 #endif
