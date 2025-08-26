@@ -120,7 +120,7 @@ public:
     Tag();
     ~Tag();
 
-    size_t GetObjectByteSize()
+        size_t GetObjectByteSize()
         {
             return  1 +  // _option
                     1 +  // _len_of_name
