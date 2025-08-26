@@ -1,1 +1,1 @@
- Point/Tag/libTag.a Point/TagGroup/libTagGroup.a Point/Tagtool/libTagtool.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ Point/Tag/libTag.a Point/TagGroup/libTagGroup.a Point/Tagtool/libTagtool.a Point/Tag/libTag.a Point/TagGroup/libTagGroup.a Point/Tagtool/libTagtool.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

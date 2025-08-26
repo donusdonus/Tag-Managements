@@ -3,4 +3,5 @@ cmake_minimum_required(VERSION 3.14)
 
 add_subdirectory(Tag)
 add_subdirectory(TagGroup)
-add_subdirectory(Topic)
+add_subdirectory(Tagtool)
+#add_subdirectory(Topic)

@@ -1,18 +1,5 @@
 #include <Tag.h>
 
-static const TypeInfo SchematicPoint[] = 
-{
-    {"char\0"  , sizeof(char)     },   /**< Character type */
-    {"int8_t\0"  , sizeof(int8_t)   },   /**< 8-bit signed integer */
-    {"uint8_t\0" , sizeof(uint8_t)  },   /**< 8-bit unsigned integer */
-    {"int16_t\0" , sizeof(int16_t)  },   /**< 16-bit signed integer */
-    {"uint16_t\0", sizeof(uint16_t) },   /**< 16-bit unsigned integer */
-    {"int32_t\0" , sizeof(int32_t)  },   /**< 32-bit signed integer */
-    {"uint32_t\0", sizeof(uint32_t) },   /**< 32-bit unsigned integer */
-    {"float\0" , sizeof(float)    },   /**< Single precision float */
-    {"double\0", sizeof(double)   }    /**< Double precision float */
-};
-
 static char PrintOut[MAX_BUFFER_PRINT];
 typedef size_t (*PrintPointData)(size_t ,void *,size_t);
 size_t static DISP_CHAR(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%c",((char*)data)[index]);}
@@ -39,14 +26,14 @@ PrintPointData static FuncPrintValue[]   = {
 
 Tag::Tag(){}
 
-Tag::~Tag(){}
+Tag::~Tag(){ Free(); }
 
 size_t Tag::GetArraySize()
 {
     return  _data.size / SchematicPoint[_option._type].element_size ;
 }
 
-const char * Tag::MonitorInfo(bool include_bytesize = false)
+const char * Tag::MonitorInfo(bool include_bytesize)
 {
     size_t out = 0;
     out = sprintf(&PrintOut[0],"  %s %s[%d] ",SchematicPoint[_option._type].name,_name.value,GetArraySize());
