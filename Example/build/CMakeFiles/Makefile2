@@ -53,10 +53,10 @@ RM = C:\msys64\mingw32\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Project\Points\Example
+CMAKE_SOURCE_DIR = D:\Points\Example
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Project\Points\Example\build
+CMAKE_BINARY_DIR = D:\Points\Example\build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -84,40 +84,103 @@ clean: Point/clean
 # Directory level rules for directory Point
 
 # Recursive "all" directory target.
-Point/all: Point/CMakeFiles/TagUtility.dir/all
-Point/all: Point/CMakeFiles/TagStatic.dir/all
+Point/all: Point/Tag/all
+Point/all: Point/TagGroup/all
+Point/all: Point/Tagtool/all
 .PHONY : Point/all
 
 # Recursive "codegen" directory target.
-Point/codegen: Point/CMakeFiles/TagUtility.dir/codegen
-Point/codegen: Point/CMakeFiles/TagStatic.dir/codegen
+Point/codegen: Point/Tag/codegen
+Point/codegen: Point/TagGroup/codegen
+Point/codegen: Point/Tagtool/codegen
 .PHONY : Point/codegen
 
 # Recursive "preinstall" directory target.
-Point/preinstall:
+Point/preinstall: Point/Tag/preinstall
+Point/preinstall: Point/TagGroup/preinstall
+Point/preinstall: Point/Tagtool/preinstall
 .PHONY : Point/preinstall
 
 # Recursive "clean" directory target.
-Point/clean: Point/CMakeFiles/TagUtility.dir/clean
-Point/clean: Point/CMakeFiles/TagStatic.dir/clean
+Point/clean: Point/Tag/clean
+Point/clean: Point/TagGroup/clean
+Point/clean: Point/Tagtool/clean
 .PHONY : Point/clean
+
+#=============================================================================
+# Directory level rules for directory Point/Tag
+
+# Recursive "all" directory target.
+Point/Tag/all: Point/Tag/CMakeFiles/Tag.dir/all
+.PHONY : Point/Tag/all
+
+# Recursive "codegen" directory target.
+Point/Tag/codegen: Point/Tag/CMakeFiles/Tag.dir/codegen
+.PHONY : Point/Tag/codegen
+
+# Recursive "preinstall" directory target.
+Point/Tag/preinstall:
+.PHONY : Point/Tag/preinstall
+
+# Recursive "clean" directory target.
+Point/Tag/clean: Point/Tag/CMakeFiles/Tag.dir/clean
+.PHONY : Point/Tag/clean
+
+#=============================================================================
+# Directory level rules for directory Point/TagGroup
+
+# Recursive "all" directory target.
+Point/TagGroup/all: Point/TagGroup/CMakeFiles/TagGroup.dir/all
+.PHONY : Point/TagGroup/all
+
+# Recursive "codegen" directory target.
+Point/TagGroup/codegen: Point/TagGroup/CMakeFiles/TagGroup.dir/codegen
+.PHONY : Point/TagGroup/codegen
+
+# Recursive "preinstall" directory target.
+Point/TagGroup/preinstall:
+.PHONY : Point/TagGroup/preinstall
+
+# Recursive "clean" directory target.
+Point/TagGroup/clean: Point/TagGroup/CMakeFiles/TagGroup.dir/clean
+.PHONY : Point/TagGroup/clean
+
+#=============================================================================
+# Directory level rules for directory Point/Tagtool
+
+# Recursive "all" directory target.
+Point/Tagtool/all: Point/Tagtool/CMakeFiles/Tagtool.dir/all
+.PHONY : Point/Tagtool/all
+
+# Recursive "codegen" directory target.
+Point/Tagtool/codegen: Point/Tagtool/CMakeFiles/Tagtool.dir/codegen
+.PHONY : Point/Tagtool/codegen
+
+# Recursive "preinstall" directory target.
+Point/Tagtool/preinstall:
+.PHONY : Point/Tagtool/preinstall
+
+# Recursive "clean" directory target.
+Point/Tagtool/clean: Point/Tagtool/CMakeFiles/Tagtool.dir/clean
+.PHONY : Point/Tagtool/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/app.dir
 
 # All Build rule for target.
-CMakeFiles/app.dir/all: Point/CMakeFiles/TagUtility.dir/all
-CMakeFiles/app.dir/all: Point/CMakeFiles/TagStatic.dir/all
+CMakeFiles/app.dir/all: Point/Tag/CMakeFiles/Tag.dir/all
+CMakeFiles/app.dir/all: Point/TagGroup/CMakeFiles/TagGroup.dir/all
+CMakeFiles/app.dir/all: Point/Tagtool/CMakeFiles/Tagtool.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=5,6 "Built target app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=7,8 "Built target app"
 .PHONY : CMakeFiles/app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/app.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
 .PHONY : CMakeFiles/app.dir/rule
 
 # Convenience name for target.
@@ -127,7 +190,7 @@ app: CMakeFiles/app.dir/rule
 # codegen rule for target.
 CMakeFiles/app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=5,6 "Finished codegen for target app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=7,8 "Finished codegen for target app"
 .PHONY : CMakeFiles/app.dir/codegen
 
 # clean rule for target.
@@ -136,68 +199,100 @@ CMakeFiles/app.dir/clean:
 .PHONY : CMakeFiles/app.dir/clean
 
 #=============================================================================
-# Target rules for target Point/CMakeFiles/TagUtility.dir
+# Target rules for target Point/Tag/CMakeFiles/Tag.dir
 
 # All Build rule for target.
-Point/CMakeFiles/TagUtility.dir/all:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagUtility.dir\build.make Point/CMakeFiles/TagUtility.dir/depend
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagUtility.dir\build.make Point/CMakeFiles/TagUtility.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=3,4 "Built target TagUtility"
-.PHONY : Point/CMakeFiles/TagUtility.dir/all
+Point/Tag/CMakeFiles/Tag.dir/all:
+	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/depend
+	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=1,2 "Built target Tag"
+.PHONY : Point/Tag/CMakeFiles/Tag.dir/all
 
 # Build rule for subdir invocation for target.
-Point/CMakeFiles/TagUtility.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/CMakeFiles/TagUtility.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
-.PHONY : Point/CMakeFiles/TagUtility.dir/rule
+Point/Tag/CMakeFiles/Tag.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/Tag/CMakeFiles/Tag.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+.PHONY : Point/Tag/CMakeFiles/Tag.dir/rule
 
 # Convenience name for target.
-TagUtility: Point/CMakeFiles/TagUtility.dir/rule
-.PHONY : TagUtility
+Tag: Point/Tag/CMakeFiles/Tag.dir/rule
+.PHONY : Tag
 
 # codegen rule for target.
-Point/CMakeFiles/TagUtility.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagUtility.dir\build.make Point/CMakeFiles/TagUtility.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=3,4 "Finished codegen for target TagUtility"
-.PHONY : Point/CMakeFiles/TagUtility.dir/codegen
+Point/Tag/CMakeFiles/Tag.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=1,2 "Finished codegen for target Tag"
+.PHONY : Point/Tag/CMakeFiles/Tag.dir/codegen
 
 # clean rule for target.
-Point/CMakeFiles/TagUtility.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagUtility.dir\build.make Point/CMakeFiles/TagUtility.dir/clean
-.PHONY : Point/CMakeFiles/TagUtility.dir/clean
+Point/Tag/CMakeFiles/Tag.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/clean
+.PHONY : Point/Tag/CMakeFiles/Tag.dir/clean
 
 #=============================================================================
-# Target rules for target Point/CMakeFiles/TagStatic.dir
+# Target rules for target Point/TagGroup/CMakeFiles/TagGroup.dir
 
 # All Build rule for target.
-Point/CMakeFiles/TagStatic.dir/all:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagStatic.dir\build.make Point/CMakeFiles/TagStatic.dir/depend
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagStatic.dir\build.make Point/CMakeFiles/TagStatic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=1,2 "Built target TagStatic"
-.PHONY : Point/CMakeFiles/TagStatic.dir/all
+Point/TagGroup/CMakeFiles/TagGroup.dir/all:
+	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/depend
+	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=3,4 "Built target TagGroup"
+.PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/all
 
 # Build rule for subdir invocation for target.
-Point/CMakeFiles/TagStatic.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/CMakeFiles/TagStatic.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
-.PHONY : Point/CMakeFiles/TagStatic.dir/rule
+Point/TagGroup/CMakeFiles/TagGroup.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/TagGroup/CMakeFiles/TagGroup.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+.PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/rule
 
 # Convenience name for target.
-TagStatic: Point/CMakeFiles/TagStatic.dir/rule
-.PHONY : TagStatic
+TagGroup: Point/TagGroup/CMakeFiles/TagGroup.dir/rule
+.PHONY : TagGroup
 
 # codegen rule for target.
-Point/CMakeFiles/TagStatic.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagStatic.dir\build.make Point/CMakeFiles/TagStatic.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=1,2 "Finished codegen for target TagStatic"
-.PHONY : Point/CMakeFiles/TagStatic.dir/codegen
+Point/TagGroup/CMakeFiles/TagGroup.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=3,4 "Finished codegen for target TagGroup"
+.PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/codegen
 
 # clean rule for target.
-Point/CMakeFiles/TagStatic.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagStatic.dir\build.make Point/CMakeFiles/TagStatic.dir/clean
-.PHONY : Point/CMakeFiles/TagStatic.dir/clean
+Point/TagGroup/CMakeFiles/TagGroup.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/clean
+.PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/clean
+
+#=============================================================================
+# Target rules for target Point/Tagtool/CMakeFiles/Tagtool.dir
+
+# All Build rule for target.
+Point/Tagtool/CMakeFiles/Tagtool.dir/all:
+	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/depend
+	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=5,6 "Built target Tagtool"
+.PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/all
+
+# Build rule for subdir invocation for target.
+Point/Tagtool/CMakeFiles/Tagtool.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/Tagtool/CMakeFiles/Tagtool.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+.PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/rule
+
+# Convenience name for target.
+Tagtool: Point/Tagtool/CMakeFiles/Tagtool.dir/rule
+.PHONY : Tagtool
+
+# codegen rule for target.
+Point/Tagtool/CMakeFiles/Tagtool.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=5,6 "Finished codegen for target Tagtool"
+.PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/codegen
+
+# clean rule for target.
+Point/Tagtool/CMakeFiles/Tagtool.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/clean
+.PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

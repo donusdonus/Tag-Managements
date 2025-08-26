@@ -56,10 +56,10 @@ RM = C:\msys64\mingw32\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Project\Points\Example
+CMAKE_SOURCE_DIR = D:\Points\Example
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Project\Points\Example\build
+CMAKE_BINARY_DIR = D:\Points\Example\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles C:\Project\Points\Example\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles D:\Points\Example\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,30 +129,43 @@ app/fast:
 .PHONY : app/fast
 
 #=============================================================================
-# Target rules for targets named TagUtility
+# Target rules for targets named Tag
 
 # Build rule for target.
-TagUtility: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TagUtility
-.PHONY : TagUtility
+Tag: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Tag
+.PHONY : Tag
 
 # fast build rule for target.
-TagUtility/fast:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagUtility.dir\build.make Point/CMakeFiles/TagUtility.dir/build
-.PHONY : TagUtility/fast
+Tag/fast:
+	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/build
+.PHONY : Tag/fast
 
 #=============================================================================
-# Target rules for targets named TagStatic
+# Target rules for targets named TagGroup
 
 # Build rule for target.
-TagStatic: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TagStatic
-.PHONY : TagStatic
+TagGroup: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TagGroup
+.PHONY : TagGroup
 
 # fast build rule for target.
-TagStatic/fast:
-	$(MAKE) $(MAKESILENT) -f Point\CMakeFiles\TagStatic.dir\build.make Point/CMakeFiles/TagStatic.dir/build
-.PHONY : TagStatic/fast
+TagGroup/fast:
+	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/build
+.PHONY : TagGroup/fast
+
+#=============================================================================
+# Target rules for targets named Tagtool
+
+# Build rule for target.
+Tagtool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Tagtool
+.PHONY : Tagtool
+
+# fast build rule for target.
+Tagtool/fast:
+	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/build
+.PHONY : Tagtool/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
@@ -186,8 +199,9 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... TagStatic
-	@echo ... TagUtility
+	@echo ... Tag
+	@echo ... TagGroup
+	@echo ... Tagtool
 	@echo ... app
 	@echo ... main.obj
 	@echo ... main.i

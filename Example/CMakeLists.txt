@@ -47,8 +47,11 @@ add_executable(app main.cpp)
 # ✅ link libraries
 target_link_libraries(app
   PRIVATE
-  TagStatic
-  TagUtility
+  Tag
+  TagGroup
+  Tagtool
+  #TagStatic
+  #TagUtility
   #Point
   #PointList
 #  freertos_kernel
