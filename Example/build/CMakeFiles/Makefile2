@@ -53,10 +53,10 @@ RM = C:\msys64\mingw32\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Points\Example
+CMAKE_SOURCE_DIR = C:\Project\Points\Example
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Points\Example\build
+CMAKE_BINARY_DIR = C:\Project\Points\Example\build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -172,14 +172,14 @@ CMakeFiles/app.dir/all: Point/Tag/CMakeFiles/Tag.dir/all
 CMakeFiles/app.dir/all: Point/Tagtool/CMakeFiles/Tagtool.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=7,8 "Built target app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=7,8 "Built target app"
 .PHONY : CMakeFiles/app.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/app.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/app.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
 .PHONY : CMakeFiles/app.dir/rule
 
 # Convenience name for target.
@@ -189,7 +189,7 @@ app: CMakeFiles/app.dir/rule
 # codegen rule for target.
 CMakeFiles/app.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=7,8 "Finished codegen for target app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=7,8 "Finished codegen for target app"
 .PHONY : CMakeFiles/app.dir/codegen
 
 # clean rule for target.
@@ -204,14 +204,14 @@ CMakeFiles/app.dir/clean:
 Point/Tag/CMakeFiles/Tag.dir/all: Point/TagGroup/CMakeFiles/TagGroup.dir/all
 	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/depend
 	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=1,2 "Built target Tag"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=1,2 "Built target Tag"
 .PHONY : Point/Tag/CMakeFiles/Tag.dir/all
 
 # Build rule for subdir invocation for target.
 Point/Tag/CMakeFiles/Tag.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/Tag/CMakeFiles/Tag.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
 .PHONY : Point/Tag/CMakeFiles/Tag.dir/rule
 
 # Convenience name for target.
@@ -221,7 +221,7 @@ Tag: Point/Tag/CMakeFiles/Tag.dir/rule
 # codegen rule for target.
 Point/Tag/CMakeFiles/Tag.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f Point\Tag\CMakeFiles\Tag.dir\build.make Point/Tag/CMakeFiles/Tag.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=1,2 "Finished codegen for target Tag"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=1,2 "Finished codegen for target Tag"
 .PHONY : Point/Tag/CMakeFiles/Tag.dir/codegen
 
 # clean rule for target.
@@ -236,14 +236,14 @@ Point/Tag/CMakeFiles/Tag.dir/clean:
 Point/TagGroup/CMakeFiles/TagGroup.dir/all: Point/Tagtool/CMakeFiles/Tagtool.dir/all
 	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/depend
 	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=3,4 "Built target TagGroup"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=3,4 "Built target TagGroup"
 .PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/all
 
 # Build rule for subdir invocation for target.
 Point/TagGroup/CMakeFiles/TagGroup.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/TagGroup/CMakeFiles/TagGroup.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
 .PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/rule
 
 # Convenience name for target.
@@ -253,7 +253,7 @@ TagGroup: Point/TagGroup/CMakeFiles/TagGroup.dir/rule
 # codegen rule for target.
 Point/TagGroup/CMakeFiles/TagGroup.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f Point\TagGroup\CMakeFiles\TagGroup.dir\build.make Point/TagGroup/CMakeFiles/TagGroup.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=3,4 "Finished codegen for target TagGroup"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=3,4 "Finished codegen for target TagGroup"
 .PHONY : Point/TagGroup/CMakeFiles/TagGroup.dir/codegen
 
 # clean rule for target.
@@ -268,14 +268,14 @@ Point/TagGroup/CMakeFiles/TagGroup.dir/clean:
 Point/Tagtool/CMakeFiles/Tagtool.dir/all:
 	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/depend
 	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=5,6 "Built target Tagtool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=5,6 "Built target Tagtool"
 .PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/all
 
 # Build rule for subdir invocation for target.
 Point/Tagtool/CMakeFiles/Tagtool.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Point/Tagtool/CMakeFiles/Tagtool.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Points\Example\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Project\Points\Example\build\CMakeFiles 0
 .PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/rule
 
 # Convenience name for target.
@@ -285,7 +285,7 @@ Tagtool: Point/Tagtool/CMakeFiles/Tagtool.dir/rule
 # codegen rule for target.
 Point/Tagtool/CMakeFiles/Tagtool.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f Point\Tagtool\CMakeFiles\Tagtool.dir\build.make Point/Tagtool/CMakeFiles/Tagtool.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=D:\Points\Example\build\CMakeFiles --progress-num=5,6 "Finished codegen for target Tagtool"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Project\Points\Example\build\CMakeFiles --progress-num=5,6 "Finished codegen for target Tagtool"
 .PHONY : Point/Tagtool/CMakeFiles/Tagtool.dir/codegen
 
 # clean rule for target.

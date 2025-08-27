@@ -7,6 +7,15 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+  "C:/Project/Points/Example/CMakeLists.txt"
+  "CMakeFiles/4.0.3/CMakeCCompiler.cmake"
+  "CMakeFiles/4.0.3/CMakeCXXCompiler.cmake"
+  "CMakeFiles/4.0.3/CMakeRCCompiler.cmake"
+  "CMakeFiles/4.0.3/CMakeSystem.cmake"
+  "C:/Project/Points/src/CMakeLists.txt"
+  "C:/Project/Points/src/Tag/CMakeLists.txt"
+  "C:/Project/Points/src/TagGroup/CMakeLists.txt"
+  "C:/Project/Points/src/Tagtool/CMakeLists.txt"
   "C:/msys64/mingw32/share/cmake/Modules/CMakeCInformation.cmake"
   "C:/msys64/mingw32/share/cmake/Modules/CMakeCXXInformation.cmake"
   "C:/msys64/mingw32/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
@@ -39,15 +48,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/msys64/mingw32/share/cmake/Modules/Platform/Windows-windres.cmake"
   "C:/msys64/mingw32/share/cmake/Modules/Platform/Windows.cmake"
   "C:/msys64/mingw32/share/cmake/Modules/Platform/WindowsPaths.cmake"
-  "D:/Points/Example/CMakeLists.txt"
-  "CMakeFiles/4.0.2/CMakeCCompiler.cmake"
-  "CMakeFiles/4.0.2/CMakeCXXCompiler.cmake"
-  "CMakeFiles/4.0.2/CMakeRCCompiler.cmake"
-  "CMakeFiles/4.0.2/CMakeSystem.cmake"
-  "D:/Points/src/CMakeLists.txt"
-  "D:/Points/src/Tag/CMakeLists.txt"
-  "D:/Points/src/TagGroup/CMakeLists.txt"
-  "D:/Points/src/Tagtool/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
