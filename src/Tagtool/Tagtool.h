@@ -2,16 +2,11 @@
 #define __TAG_TOOL__H__
 
 #include <stdio.h>
-#include <string.h>
 #include <stdint.h>
 
 #define MARK_CHAR_NULL 0x00
 #define MARK_FREE_MEMORY 0x0FF
 #define MAX_BUFFER_PRINT 128
-#define _SECTOR_RAM_(x,y) calloc(x,y)
-#define _SECTOR_PSRAM_(x,y) calloc(x,y)
-#define _SECTOR_SPARE1_(x,y) calloc(x,y)
-#define _SECTOR_SPARE2_(x,y) calloc(x,y)
 #define RAM_FREE(x) free(x)
 
 #pragma pack(push,1)
@@ -85,65 +80,65 @@ union isOption
 };
 
 
-static const TypeInfo SchematicPoint[] = 
+namespace TagSys
 {
-    {"char\0"  , sizeof(char)     },   /**< Character type */
-    {"int8_t\0"  , sizeof(int8_t)   },   /**< 8-bit signed integer */
-    {"uint8_t\0" , sizeof(uint8_t)  },   /**< 8-bit unsigned integer */
-    {"int16_t\0" , sizeof(int16_t)  },   /**< 16-bit signed integer */
-    {"uint16_t\0", sizeof(uint16_t) },   /**< 16-bit unsigned integer */
-    {"int32_t\0" , sizeof(int32_t)  },   /**< 32-bit signed integer */
-    {"uint32_t\0", sizeof(uint32_t) },   /**< 32-bit unsigned integer */
-    {"float\0" , sizeof(float)    },   /**< Single precision float */
-    {"double\0", sizeof(double)   }    /**< Double precision float */
-};
 
-
-
-class Tagtool
-{
-private:
-    /* data */
-public:
-    Tagtool(/* args */);
-    ~Tagtool();
-
-    static void * Calloc(isMemory *memType, size_t elements, size_t elementSize)
+    static const TypeInfo SchematicPoint[] = 
     {
-        switch (*memType)
-        {
-        case isMemory::RAM:
-            return _SECTOR_RAM_(elements, elementSize);
-            break;
-        case isMemory::PSRAM:
-            return _SECTOR_PSRAM_(elements, elementSize);
-            break;
-        case isMemory::SPARE_1:
-            return _SECTOR_SPARE1_(elements, elementSize);
-            break;
-        case isMemory::SPARE_2:
-            return _SECTOR_SPARE2_(elements, elementSize);
-            break;
-        default:
-            return _SECTOR_RAM_(elements, elementSize);
-            break;
-        }
-        return nullptr;
-    }
+        {"char\0"  , sizeof(char)     },   /**< Character type */
+        {"int8_t\0"  , sizeof(int8_t)   },   /**< 8-bit signed integer */
+        {"uint8_t\0" , sizeof(uint8_t)  },   /**< 8-bit unsigned integer */
+        {"int16_t\0" , sizeof(int16_t)  },   /**< 16-bit signed integer */
+        {"uint16_t\0", sizeof(uint16_t) },   /**< 16-bit unsigned integer */
+        {"int32_t\0" , sizeof(int32_t)  },   /**< 32-bit signed integer */
+        {"uint32_t\0", sizeof(uint32_t) },   /**< 32-bit unsigned integer */
+        {"float\0" , sizeof(float)    },   /**< Single precision float */
+        {"double\0", sizeof(double)   }    /**< Double precision float */
+    };
 
-    static void Free(isMemory *memType,void *src)
-    {
-        free(src);
-    }
 
-};
+    static char PrintOut[MAX_BUFFER_PRINT];
+    typedef size_t (*PrintPointData)(size_t ,void *,size_t);
+    size_t static DISP_CHAR(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%c",((char*)data)[index]);}
+    size_t static DISP_INT8(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int8_t*)data)[index]);}
+    size_t static DISP_UINT8(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint8_t*)data)[index]);}
+    size_t static DISP_INT16(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int16_t*)data)[index]);}
+    size_t static DISP_UINT16(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint16_t*)data)[index]);}
+    size_t static DISP_INT32(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%d ",((int32_t*)data)[index]);}
+    size_t static DISP_UINT32(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%u ",((uint32_t*)data)[index]);}
+    size_t static DISP_FLOAT(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%.3f ",((float*)data)[index]);}
+    size_t static DISP_DOUBLE(size_t offset,void *data,size_t index){ return  snprintf(PrintOut + offset,MAX_BUFFER_PRINT - offset,"%.3f ",((double*)data)[index]);}
 
-Tagtool::Tagtool(/* args */)
-{
-}
 
-Tagtool::~Tagtool()
-{
+    PrintPointData static const FuncPrintValue[] = {
+                                       &DISP_CHAR,
+                                       &DISP_INT8,
+                                       &DISP_UINT8,
+                                       &DISP_INT16,
+                                       &DISP_UINT16,
+                                       &DISP_INT32,
+                                       &DISP_UINT32,
+                                       &DISP_FLOAT,
+                                       &DISP_DOUBLE
+                                   };
+
+     /* Modify Replace std function */
+     void *_calloc(isMemory memType, size_t elements, size_t elementSize);
+     void _free(void *src);
+     uint8_t *_memcpy(uint8_t *des ,uint8_t *src,size_t size);
+
+     /* Common function */
+     bool _setName(isMemory memType,RawMemory *src,const char *name);
+      
+     /* Linklist function */
+     template<typename T>
+     T* next(T **src)
+     {
+        
+     }
+
+     template<typename T>
+     bool hasNext(T **src);
 }
 
 #endif

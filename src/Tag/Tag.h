@@ -7,10 +7,16 @@
 #include <string.h>
 
 #include "Tagtool.h"
-#include "TagGroup.h"
+
+using namespace TagSys;
 
 class Tag
 {
+
+     friend void * TagSys::_calloc(isMemory memType, size_t elements, size_t elementSize);
+     friend void TagSys::_free(void *src);
+     friend uint8_t *TagSys::_memcpy(uint8_t *des ,uint8_t *src,size_t size);
+
 private:
     /* data */
     isOption _option;
@@ -18,8 +24,7 @@ private:
     RawMemory _data;       /**< Data buffer for the component */
     Tag *_next = nullptr;
     Tag *_first = nullptr;
-
-    friend class TagGroup ;
+    friend class TagGroup;
 public:
     Tag();
     ~Tag();

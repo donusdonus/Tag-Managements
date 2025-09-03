@@ -2,18 +2,24 @@
 #define __TAG_GROUP__H___
 
 #include "Tag.h"
+#include "Linklist.h"
 
-class TagGroup
+
+
+
+class TagGroup 
 {
 private:
     /* data */
-    Tag *_Item = nullptr ; 
+    LinkList<Tag> tags;
 public:
     TagGroup(/* args */);
     ~TagGroup();
 
 Tag * Add(isType type,const char * name,size_t array_size=1,isMemory memtype = isMemory::RAM)
         {
+
+
             if(array_size == 0) 
                 return nullptr;
 
@@ -26,7 +32,7 @@ Tag * Add(isType type,const char * name,size_t array_size=1,isMemory memtype = i
             {
                 cur = &(*cur)->_next;
             }
-
+        
             Tag *newItem = (Tag*)Allocator(memtype,array_size,sizeof(Tag));
 
             monitor = (newItem != nullptr);

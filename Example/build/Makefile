@@ -155,6 +155,19 @@ TagGroup/fast:
 .PHONY : TagGroup/fast
 
 #=============================================================================
+# Target rules for targets named LinkList
+
+# Build rule for target.
+LinkList: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LinkList
+.PHONY : LinkList
+
+# fast build rule for target.
+LinkList/fast:
+	$(MAKE) $(MAKESILENT) -f _deps\linklist-build\CMakeFiles\LinkList.dir\build.make _deps/linklist-build/CMakeFiles/LinkList.dir/build
+.PHONY : LinkList/fast
+
+#=============================================================================
 # Target rules for targets named Tagtool
 
 # Build rule for target.
@@ -199,6 +212,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... LinkList
 	@echo ... Tag
 	@echo ... TagGroup
 	@echo ... Tagtool

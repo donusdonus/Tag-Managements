@@ -101,6 +101,7 @@ app.exe: Point/Tagtool/libTagtool.a
 app.exe: Point/Tag/libTag.a
 app.exe: Point/TagGroup/libTagGroup.a
 app.exe: Point/Tagtool/libTagtool.a
+app.exe: _deps/linklist-build/libLinkList.a
 app.exe: CMakeFiles/app.dir/linkLibs.rsp
 app.exe: CMakeFiles/app.dir/objects1.rsp
 app.exe: CMakeFiles/app.dir/link.txt
