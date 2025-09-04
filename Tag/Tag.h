@@ -26,6 +26,10 @@ public:
     Tag();
     ~Tag();
 
+        bool init(isType type,const char * name,size_t array_size=1,isMemory memtype = isMemory::RAM);
+
+        bool init(isType type,const char * name,void *addr,size_t array_size=1,isMemory memtype = isMemory::RAM);
+
         size_t GetObjectByteSize()
         {
             return  1 +  // _option
