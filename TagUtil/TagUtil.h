@@ -49,7 +49,7 @@ struct RawMemory
     {
         return size ; 
     }
-    
+
 };
 #pragma pack(pop)
 

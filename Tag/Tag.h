@@ -22,13 +22,18 @@ private:
     RawMemory _name;       /**< Name of the component */
     RawMemory _data;       /**< Data buffer for the component */
 
+    /* init tag by internal address allocate */
+    bool init(isType type,const char * name,size_t array_size=1,isMemory memtype = isMemory::RAM);
+
+    /* init tag by external address allocate */
+    bool init(isType type,const char * name,void *addr,size_t array_size=1,isMemory memtype = isMemory::RAM);
+
 public:
+
+    friend class TagGroup;
+
     Tag();
     ~Tag();
-
-        bool init(isType type,const char * name,size_t array_size=1,isMemory memtype = isMemory::RAM);
-
-        bool init(isType type,const char * name,void *addr,size_t array_size=1,isMemory memtype = isMemory::RAM);
 
         size_t GetObjectByteSize()
         {
@@ -42,6 +47,10 @@ public:
         template<typename T>
         bool Set(T value,size_t index = 0)
         {
+            /* check buffer is nullptr */
+            if(_data.value == nullptr)
+                return false;
+
             bool monitor;
             size_t a , b ;
 
@@ -70,6 +79,10 @@ public:
         T Get(size_t index = 0)
         {
             bool monitor;
+
+            /* check buffer is nullptr */
+            if(_data.value == nullptr)
+                return T{};
 
             monitor = (sizeof(T) == SchematicPoint[_option._type].element_size);
             if(!monitor)
