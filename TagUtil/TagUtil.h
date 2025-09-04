@@ -130,15 +130,6 @@ namespace TagSys
      /* Common function */
      bool _setName(isMemory memType,RawMemory *src,const char *name);
       
-     /* Linklist function */
-     template<typename T>
-     T* next(T **src)
-     {
-        
-     }
-
-     template<typename T>
-     bool hasNext(T **src);
 }
 
 #endif

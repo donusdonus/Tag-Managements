@@ -5,10 +5,10 @@
       "name": "Debug Existing CMake Build",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/Example/build/app.exe",  
+      "program": "${workspaceFolder}/test/build/app.exe",  
       "args": [],
       "stopAtEntry": false,
-      "cwd": "${workspaceFolder}/Example/build",
+      "cwd": "${workspaceFolder}/test/build",
       "MIMode": "gdb",
       "miDebuggerPath": "C:/msys64/mingw32/bin/gdb.exe",  
       "setupCommands": [

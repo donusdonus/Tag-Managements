@@ -22,7 +22,7 @@ set(CMAKE_BUILD_TYPE Debug)
 #FetchContent_MakeAvailable(freertos)
 
 # ✅ เพิ่มไลบรารี mountkit
-add_subdirectory(../src ${CMAKE_CURRENT_BINARY_DIR}/Point)
+add_subdirectory(../ ${CMAKE_CURRENT_BINARY_DIR}/Point)
 
 # ✅ สร้าง executable
 add_executable(app main.cpp)
@@ -49,7 +49,7 @@ target_link_libraries(app
   PRIVATE
   Tag
   TagGroup
-  Tagtool
+  TagUtil
   #TagStatic
   #TagUtility
   #Point

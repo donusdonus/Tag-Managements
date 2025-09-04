@@ -4,9 +4,6 @@
 #include "Tag.h"
 #include "Linklist.h"
 
-
-
-
 class TagGroup 
 {
 private:
@@ -18,21 +15,11 @@ public:
 
 Tag * Add(isType type,const char * name,size_t array_size=1,isMemory memtype = isMemory::RAM)
         {
-
-
             if(array_size == 0) 
                 return nullptr;
 
             bool monitor;
-            Tag **cur = &this->_Item;
-            Tag **cur_first = &this->_Item;
 
-            /* 1. Find last elements for connect */
-            while ((cur != nullptr) && (*cur != nullptr))
-            {
-                cur = &(*cur)->_next;
-            }
-        
             Tag *newItem = (Tag*)Allocator(memtype,array_size,sizeof(Tag));
 
             monitor = (newItem != nullptr);

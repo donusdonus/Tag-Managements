@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-
-#include "Tagtool.h"
+#include "TagUtil.h"
 
 using namespace TagSys;
 
@@ -22,9 +21,7 @@ private:
     isOption _option;
     RawMemory _name;       /**< Name of the component */
     RawMemory _data;       /**< Data buffer for the component */
-    Tag *_next = nullptr;
-    Tag *_first = nullptr;
-    friend class TagGroup;
+
 public:
     Tag();
     ~Tag();
