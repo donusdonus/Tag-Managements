@@ -28,7 +28,7 @@ public:
 
     Tag * FindByIndex(size_t index);
 
-    Tag * FindByName(const char *name);
+    Tag * FindByName(char *name);
 
     int * FindIndexByName(const char *name);
 
@@ -65,7 +65,7 @@ void Remove(size_t index)
             }
         }
 
-void Remove(const char * name)
+void Remove(char * name)
         {
            int index = FindIndex(name);
 

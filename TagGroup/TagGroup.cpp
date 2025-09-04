@@ -53,22 +53,15 @@
         return Tags[index];
     }
     
-    Tag * TagGroup::FindByName(const char *name)
+    Tag * TagGroup::FindByName(char *name)
     {
         Tag *tmp = nullptr;
         size_t len = Tags.Count();
 
-        for(int n = 0 ; n < len ; n++)
-        {
-            if(Tags[n] != nullptr)
-            {
-                if(strcmp((char*)Tags[n]->_name.value,name) == 0)
-                {
-                    return Tags[n] ;
-                }
-            }
-            Tags.Find()
-        }
+        Tags.Find([](Tag *target,size_t index,void *arg){
+
+
+        },name);
         
         return nullptr;
     }
